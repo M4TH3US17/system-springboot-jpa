@@ -2,7 +2,9 @@ package com.matheus.course.entities;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -30,7 +33,9 @@ public class Order implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "client_id")
 	private User client;
-
+	@OneToMany(mappedBy = "id.order")
+	private Set<OrderItem> items = new HashSet<>();
+	
 	public Order() {
 	}
 
@@ -56,6 +61,10 @@ public class Order implements Serializable {
 
 	public void setMoment(Instant moment) {
 		this.moment = moment;
+	}
+	
+	public Set<OrderItem> getOrderItem(){
+		return items;
 	}
 
 	public OrderStatus getOrderStatus() {
