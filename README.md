@@ -24,6 +24,8 @@
   <p>➤ [PUT] Atualizar usuário por Id - <i><strong>/users/{id}</strong></i></p>
 
   <p>➤ [DELETE] Excluir usuário por id - <i><strong>/users/{id}</strong></i></p><br>
+  
+  <p><strong>HEROKU:</strong> <a href="https://javasb-orders.herokuapp.com/users">https://javasb-orders.herokuapp.com/users</a></p>
 <hr>
 <details>
     <br>
